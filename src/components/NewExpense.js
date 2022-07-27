@@ -39,6 +39,11 @@ const NewExpense = () => {
   const submitHander = (event) => {
     event.preventDefault();
     console.log(userInput);
+    setUserInput({
+      title: "",
+      amount: "",
+      date: "",
+    });
   };
 
   return (
@@ -49,6 +54,7 @@ const NewExpense = () => {
           className="new-expense__control"
           type="text"
           placeholder="Title"
+          value={userInput.title}
           required
         />
       </div>
@@ -60,6 +66,7 @@ const NewExpense = () => {
           placeholder="Amount"
           min="0.01"
           step="0.01"
+          value={userInput.amount}
           required
         />
       </div>
@@ -71,6 +78,7 @@ const NewExpense = () => {
           placeholder="Date"
           min="2021-07-27"
           max="2022-07-27"
+          value={userInput.date}
           required
         />
       </div>
