@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import "../assests/NewExpense.css";
 
-const NewExpense = () => {
+const NewExpense = (props) => {
   const [userInput, setUserInput] = useState({
     title: "",
     amount: "",
@@ -38,7 +38,9 @@ const NewExpense = () => {
 
   const submitHander = (event) => {
     event.preventDefault();
-    console.log(userInput);
+
+    props.onSubmitExpenseData(userInput);
+
     setUserInput({
       title: "",
       amount: "",
