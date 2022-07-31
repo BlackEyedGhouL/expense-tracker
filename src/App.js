@@ -5,17 +5,8 @@ import Header from "./components/Header";
 import NewExpense from "./components/NewExpense";
 import Transactions from "./components/Transactions";
 
-const DUMMY_DATA = [
-  {
-    id: "11dcfbdf36e",
-    title: "Toilet Paper",
-    amount: "94.12",
-    date: "2022-05-24",
-  },
-];
-
 const App = () => {
-  const [expenses, setExpenses] = useState(DUMMY_DATA);
+  const [expenses, setExpenses] = useState([]);
 
   const submitExpenseHandler = (submittedExpense) => {
     const expense = {
@@ -28,6 +19,13 @@ const App = () => {
     });
   };
 
+  let message;
+  if (expenses && expenses.length) {
+    message = "";
+  } else {
+    message = "No recent transactions!";
+  }
+
   return (
     <div>
       <Header />
@@ -37,6 +35,7 @@ const App = () => {
       <NewExpense onSubmitExpense={submitExpenseHandler} />
       <h3 className="sub-title-text">Transactions</h3>
       <Transactions items={expenses} />
+      <h3 className="empty-message">{message}</h3>
     </div>
   );
 };
