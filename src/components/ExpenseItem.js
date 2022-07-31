@@ -1,17 +1,17 @@
-import '../assests/ExpenseItem.css';
+import "../assests/ExpenseItem.css";
 
-const ExpenseItem = () => {
+const ExpenseItem = (props) => {
   return (
     <div className="expense-item">
       <div>
-        <h2 className="expense-item-name">Toilet papers</h2>
-        <h2 className="expense-item-date">19 May 2022</h2>
+        <h2 className="expense-item-name">{props.title}</h2>
+        <h2 className="expense-item-date">{props.date}</h2>
       </div>
       <div className="expense-item-right">
-        <h2>$12</h2>
+        <h2>${props.amount}</h2>
       </div>
     </div>
   );
-}
+};
 
 export default ExpenseItem;

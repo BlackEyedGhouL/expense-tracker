@@ -39,7 +39,7 @@ const NewExpense = (props) => {
   const submitHander = (event) => {
     event.preventDefault();
 
-    props.onSubmitExpenseData(userInput);
+    props.onSubmitExpense(userInput);
 
     setUserInput({
       title: "",
