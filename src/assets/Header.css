@@ -31,9 +31,3 @@
   color: var(--sub-topic-text);
   margin-top: 20px;
 }
-
-.empty-message {
-  font-size: 1.3em;
-  color: var(--secondary-text);
-  text-align: center;
-}

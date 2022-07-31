@@ -3,6 +3,7 @@ import { useState } from "react";
 import Graph from "./components/Graph";
 import Header from "./components/Header";
 import NewExpense from "./components/NewExpense";
+import NoTransactions from "./components/NoTransactions";
 import Transactions from "./components/Transactions";
 
 const App = () => {
@@ -19,13 +20,6 @@ const App = () => {
     });
   };
 
-  let message;
-  if (expenses && expenses.length) {
-    message = "";
-  } else {
-    message = "No recent transactions!";
-  }
-
   return (
     <div>
       <Header />
@@ -35,7 +29,7 @@ const App = () => {
       <NewExpense onSubmitExpense={submitExpenseHandler} />
       <h3 className="sub-title-text">Transactions</h3>
       <Transactions items={expenses} />
-      <h3 className="empty-message">{message}</h3>
+      {expenses.length === 0 ? <NoTransactions /> : null}
     </div>
   );
 };

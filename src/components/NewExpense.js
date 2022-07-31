@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import "../assests/NewExpense.css";
+import "../assets/NewExpense.css";
 
 const NewExpense = (props) => {
   const [userInput, setUserInput] = useState({

@@ -1,4 +1,4 @@
-import "../assests/ExpenseItem.css";
+import "../assets/ExpenseItem.css";
 
 const ExpenseItem = (props) => {
   return (

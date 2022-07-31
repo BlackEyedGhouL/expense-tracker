@@ -1,4 +1,4 @@
-import '../assests/Header.css';
+import "../assets/Header.css";
 
 const Header = () => {
   return (
@@ -10,6 +10,6 @@ const Header = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Header;

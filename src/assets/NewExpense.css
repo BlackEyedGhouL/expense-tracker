@@ -29,6 +29,6 @@
 }
 
 .new-expense__actions:hover {
-    background-color: var(--primary-text);
-    color: var(--background-color);
+  background-color: var(--primary-text);
+  color: var(--background-color);
 }
