@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import NewExpense from "./components/NewExpense";
 import NoTransactions from "./components/NoTransactions";
 import Transactions from "./components/Transactions";
+import AddExpenseFAB from "./components/AddExpenseFAB";
 
 const App = () => {
   const [expenses, setExpenses] = useState([]);
@@ -29,7 +30,8 @@ const App = () => {
       <NewExpense onSubmitExpense={submitExpenseHandler} />
       <h3 className="sub-title-text">Transactions</h3>
       <Transactions items={expenses} />
-      {expenses.length === 0 ? <NoTransactions /> : null}
+      {expenses.length === 0 && <NoTransactions />}
+      <AddExpenseFAB />
     </div>
   );
 };
