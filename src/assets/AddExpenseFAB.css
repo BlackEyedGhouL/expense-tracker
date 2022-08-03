@@ -1,8 +1,0 @@
-.expense-fab-button {
-  display: flex;
-  justify-content: end;
-}
-
-.expense-fab {
-  background-color: var(--primary-text);
-}

@@ -1,11 +1,28 @@
+import { useState } from "react";
+
 import { Fab, Zoom, makeStyles } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 
 import "../assets/AddExpenseFAB.css";
 
-const AddExpenseFAB = () => {
+const AddExpenseFAB = (props) => {
   const useStyles = makeStyles({
-    addButton: {
+    buttonClicked: {
+      margin: 0,
+      top: "auto",
+      right: 20,
+      bottom: 20,
+      left: "auto",
+      position: "fixed",
+      zIndex: 20,
+      backgroundColor: "#e85a4f",
+      color: "#eae7dc",
+      "&:hover": {
+        backgroundColor: "#eae7dc",
+        color: "#e85a4f",
+      },
+    },
+    buttonNotClicked: {
       margin: 0,
       top: "auto",
       right: 20,
@@ -20,17 +37,31 @@ const AddExpenseFAB = () => {
         color: "#eae7dc",
       },
     },
-    addIcon: {
-      fill: "white",
-    },
   });
 
   const classes = useStyles();
 
+  const [isOpen, setIsOpen] = useState(true);
+
+  const clickHander = (event) => {
+    event.preventDefault();
+    setIsOpen(!isOpen);
+
+    if (isOpen) {
+      props.onClickFAB(true);
+    } else {
+      props.onClickFAB(false);
+    }
+  };
+
   return (
-    <div className="expense-fab-button">
+    <div className="expense-fab">
       <Zoom in={true} timeout={{ enter: 500, exit: 500 }} unmountOnExit>
-        <Fab className={classes.addButton} size="mid">
+        <Fab
+          className={!isOpen ? classes.buttonClicked : classes.buttonNotClicked}
+          size="mid"
+          onClick={clickHander}
+        >
           <AddIcon fontSize="large" />
         </Fab>
       </Zoom>

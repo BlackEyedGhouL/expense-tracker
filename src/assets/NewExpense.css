@@ -32,3 +32,14 @@
   background-color: var(--primary-text);
   color: var(--background-color);
 }
+
+.new-expense-open {
+  padding: 0;
+}
+
+.new-expense-closed {
+  padding: 0;
+  height: 0;
+  overflow: hidden;
+  transition: height ease 0.3s;
+}

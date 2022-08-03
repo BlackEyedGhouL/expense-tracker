@@ -9,6 +9,7 @@ import AddExpenseFAB from "./components/AddExpenseFAB";
 
 const App = () => {
   const [expenses, setExpenses] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   const submitExpenseHandler = (submittedExpense) => {
     const expense = {
@@ -21,17 +22,23 @@ const App = () => {
     });
   };
 
+  const clickFABHandler = (isClicked) => {
+    setIsOpen(isClicked);
+  };
+
   return (
     <div>
       <Header />
       <h3 className="sub-title-text">Overview</h3>
       <Graph />
-      <h3 className="sub-title-text">New Expense</h3>
-      <NewExpense onSubmitExpense={submitExpenseHandler} />
+      <div className={isOpen ? "new-expense-open" : "new-expense-closed"}>
+        <h3 className="sub-title-text">New Expense</h3>
+        <NewExpense onSubmitExpense={submitExpenseHandler} />
+      </div>
       <h3 className="sub-title-text">Transactions</h3>
       <Transactions items={expenses} />
       {expenses.length === 0 && <NoTransactions />}
-      <AddExpenseFAB />
+      <AddExpenseFAB onClickFAB={clickFABHandler} />
     </div>
   );
 };
