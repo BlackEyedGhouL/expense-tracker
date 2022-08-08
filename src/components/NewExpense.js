@@ -3,49 +3,45 @@ import { useState } from "react";
 import "../assets/NewExpense.css";
 
 const NewExpense = (props) => {
-  const [userInput, setUserInput] = useState({
-    title: "",
-    amount: "",
-    date: "",
-  });
+  const [enteredTitle, setEnteredTitle] = useState("");
+  const [enteredAmount, setEnteredAmount] = useState("");
+  const [enteredDate, setEnteredDate] = useState("");
 
   const titleChangeHandler = (event) => {
-    setUserInput((prevState) => {
-      return {
-        ...prevState,
-        title: event.target.value,
-      };
-    });
+    setEnteredTitle(event.target.value);
   };
 
   const amountChangeHandler = (event) => {
-    setUserInput((prevState) => {
-      return {
-        ...prevState,
-        amount: event.target.value,
-      };
-    });
+    const { value } = event.target;
+
+    if (value.match(/\./g)) {
+      const [, decimal] = value.split(".");
+
+      if (decimal?.length > 2) {
+        return;
+      }
+    }
+    setEnteredAmount(event.target.value);
   };
 
   const dateChangeHandler = (event) => {
-    setUserInput((prevState) => {
-      return {
-        ...prevState,
-        date: event.target.value,
-      };
-    });
+    setEnteredDate(event.target.value);
   };
 
   const submitHander = (event) => {
     event.preventDefault();
 
-    props.onSubmitExpense(userInput);
+    const expenseData = {
+      title: enteredTitle,
+      amount: +enteredAmount,
+      date: new Date(enteredDate),
+    };
 
-    setUserInput({
-      title: "",
-      amount: "",
-      date: "",
-    });
+    props.onSubmitExpense(expenseData);
+
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
   };
 
   return (
@@ -56,7 +52,7 @@ const NewExpense = (props) => {
           className="new-expense__control"
           type="text"
           placeholder="Title"
-          value={userInput.title}
+          value={enteredTitle}
           required
         />
       </div>
@@ -68,7 +64,7 @@ const NewExpense = (props) => {
           placeholder="Amount"
           min="0.01"
           step="0.01"
-          value={userInput.amount}
+          value={enteredAmount}
           required
         />
       </div>
@@ -80,7 +76,7 @@ const NewExpense = (props) => {
           placeholder="Date"
           min="2021-07-27"
           max="2022-07-27"
-          value={userInput.date}
+          value={enteredDate}
           required
         />
       </div>

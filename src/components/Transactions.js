@@ -8,7 +8,7 @@ const Transactions = (props) => {
           key={expense.id}
           title={expense.title}
           amount={expense.amount}
-          date={expense.date}
+          date={expense.date.toDateString()}
         />
       ))}
     </div>

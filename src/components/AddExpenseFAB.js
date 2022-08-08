@@ -59,7 +59,7 @@ const AddExpenseFAB = (props) => {
       <Zoom in={true} timeout={{ enter: 500, exit: 500 }} unmountOnExit>
         <Fab
           className={!isOpen ? classes.buttonClicked : classes.buttonNotClicked}
-          size="mid"
+          size="large"
           onClick={clickHander}
         >
           <AddIcon fontSize="large" />

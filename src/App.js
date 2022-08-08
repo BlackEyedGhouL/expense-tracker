@@ -28,7 +28,7 @@ const App = () => {
 
   return (
     <div>
-      <Header />
+      <Header items={expenses} />
       <h3 className="sub-title-text">Overview</h3>
       <Graph />
       <div className={isOpen ? "new-expense-open" : "new-expense-closed"}>
