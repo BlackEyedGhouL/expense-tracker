@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-import Graph from "./components/Graph";
 import Header from "./components/Header";
 import NewExpense from "./components/NewExpense";
 import NoTransactions from "./components/NoTransactions";
 import Transactions from "./components/Transactions";
 import AddExpenseFAB from "./components/AddExpenseFAB";
+import ExpensesChart from "./components/ExpensesChart";
 
 const App = () => {
   const [expenses, setExpenses] = useState([]);
@@ -30,7 +30,7 @@ const App = () => {
     <div>
       <Header items={expenses} />
       <h3 className="sub-title-text">Overview</h3>
-      <Graph />
+      <ExpensesChart expenses={expenses} />
       <div className={isOpen ? "new-expense-open" : "new-expense-closed"}>
         <h3 className="sub-title-text">New Expense</h3>
         <NewExpense onSubmitExpense={submitExpenseHandler} />
