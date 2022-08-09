@@ -74,8 +74,8 @@ const NewExpense = (props) => {
           className="new-expense__control"
           type="date"
           placeholder="Date"
-          min="2021-07-27"
-          max="2022-07-27"
+          min="2022-01-01"
+          max="2022-12-31"
           value={enteredDate}
           required
         />

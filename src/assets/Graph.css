@@ -1,8 +1,0 @@
-.graph-containter {
-  padding: 10px;
-  margin-top: 10px;
-  background-color: var(--background-color);
-  height: 400px;
-  box-shadow: 0 3px 15px rgb(0 0 0 / 0.2);
-  border-radius: 20px;
-}
